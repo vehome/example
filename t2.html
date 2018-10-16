@@ -34,7 +34,7 @@ body{
 <div class="dt"><a href="http://baidu.com">交易所</a></div>
 <div class="dt"><a href="http://baidu.com">公告</a></div>
 </div>
-<input id="url" type="text" style="width:80%;height:6rem;border:1px solid blue;border-radius:5px"/> <input type="button" value="跳转" style="font-size:2rem;width:18%;height:6rem;background:#ffffffff;border:1px solid blue;border-radius:5px" onclick="goto()"/>
+<input id="url" type="text" style="width:80%;height:6rem;border:1px solid blue;border-radius:5px;font-size:2.5rem"/> <input type="button" value="跳转" style="font-size:2.5rem;width:18%;height:6rem;background:#ffffffff;border:1px solid blue;border-radius:5px" onclick="goto()"/>
 <br/>
 <br/>
 <div style="width:100%;height:1px;background:blue;margin-bottom:10rem"><div/>
@@ -95,7 +95,7 @@ body{
 		if(url.slice(0,3)!="http"){
 			url="http://"+url;
 		}
-		window.location.href=url; 
+		window.location.href=url+'?time='+((new Date()).getTime()); 
 	}		
 				
 </script>
