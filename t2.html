@@ -25,7 +25,7 @@ body{
 
 </head>
 <body>
-
+<a id="href_true" style="display: none;"></a>  
 <div style="float:right;width:100%;height:9rem;border:none;border-radius:5px">
 <div class="dt"><a href="http://baidu.com">天气预报</a></div>
 <br/>
@@ -95,26 +95,12 @@ body{
 		if(url.slice(0,3)!="http"){
 			url="http://"+url;
 		}
-		url=url+'?time='+((new Date()).getTime()); 
-		var xhr = XHR();
 		
-		xhr.open("get", url, true);
-		xhr.send(null);
-		return false;//防止onclick之后表单提交
+		//$("#href_true").attr("href",url);//传入参数  
+		document.getElementById("href_true").setAttribute("href",url);
+     	document.getElementById("href_true").click();//模拟点击  
 
 	}		
-function XHR() {
-// 参考自 <a target=_blank href="http://www.cnblogs.com/gaojun/archive/2012/08/11/2633891.html">http://www.cnblogs.com/gaojun/archive/2012/08/11/2633891.html</a>
-var xhr;
-try {xhr = new XMLHttpRequest();}
-catch(e) {
-	var IEXHRVers =["Msxml3.XMLHTTP","Msxml2.XMLHTTP","Microsoft.XMLHTTP"];
-	for (var i=0,len=IEXHRVers.length;i< len;i++) {
-		try {xhr = new ActiveXObject(IEXHRVers[i]);}
-		catch(e) {continue;}
-	}
-}
-return xhr;
 
 </script>
 </body>
