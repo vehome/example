@@ -95,9 +95,27 @@ body{
 		if(url.slice(0,3)!="http"){
 			url="http://"+url;
 		}
-		window.location.href=url+'?time='+((new Date()).getTime()); 
+		url=url+'?time='+((new Date()).getTime()); 
+		var xhr = XHR();
+		
+		xhr.open("get", url, true);
+		xhr.send(null);
+		return false;//防止onclick之后表单提交
+
 	}		
-				
+function XHR() {
+// 参考自 <a target=_blank href="http://www.cnblogs.com/gaojun/archive/2012/08/11/2633891.html">http://www.cnblogs.com/gaojun/archive/2012/08/11/2633891.html</a>
+var xhr;
+try {xhr = new XMLHttpRequest();}
+catch(e) {
+	var IEXHRVers =["Msxml3.XMLHTTP","Msxml2.XMLHTTP","Microsoft.XMLHTTP"];
+	for (var i=0,len=IEXHRVers.length;i< len;i++) {
+		try {xhr = new ActiveXObject(IEXHRVers[i]);}
+		catch(e) {continue;}
+	}
+}
+return xhr;
+
 </script>
 </body>
 </html>
